@@ -1,0 +1,7 @@
+Options -Indexes
+AddDefaultCharset UTF-8
+
+# Security: Block akses langsung ke file PHP di folder uploads
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7)$">
+    Deny from all
+</FilesMatch>

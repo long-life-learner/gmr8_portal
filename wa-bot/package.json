@@ -1,0 +1,21 @@
+{
+  "name": "gmr8-wa-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp Bot RT 005 GMR 8 - Powered by Baileys",
+  "type": "module",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js",
+    "dev": "node --watch bot.js"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "^6.7.9",
+    "pino": "^9.4.0",
+    "qrcode-terminal": "^0.12.0",
+    "dotenv": "^16.4.5",
+    "node-cache": "^5.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

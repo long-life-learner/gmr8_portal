@@ -1,0 +1,215 @@
+/* ============================================================
+   Admin Panel CSS — Portal Warga RT 005 GMR 8
+   ============================================================ */
+
+body.admin-body {
+    padding-bottom: 0;
+    background: #f4f7f5;
+}
+
+/* --- Admin Top Bar --- */
+.admin-topbar {
+    position: sticky; top: 0; z-index: 200;
+    background: linear-gradient(135deg, var(--green-900), var(--green-800));
+    color: #fff;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    gap: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.2);
+}
+.admin-topbar .toggle-sidebar {
+    background: rgba(255,255,255,.15);
+    border: none; color: #fff;
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    cursor: pointer; font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+}
+.admin-topbar .toggle-sidebar:hover { background: rgba(255,255,255,.25); }
+.admin-topbar .topbar-title { font-weight: 800; font-size: 15px; flex: 1; }
+.admin-topbar .topbar-user {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px;
+}
+.admin-topbar .topbar-user .avatar {
+    width: 32px; height: 32px;
+    background: rgba(255,255,255,.2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 13px;
+}
+.topbar-right { display: flex; align-items: center; gap: 10px; }
+.topbar-logout {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    color: #fff; border-radius: 6px; padding: 5px 10px;
+    font-size: 12px; font-family: 'Nunito', sans-serif;
+    cursor: pointer; text-decoration: none;
+    display: flex; align-items: center; gap: 5px;
+    transition: background var(--transition);
+}
+.topbar-logout:hover { background: rgba(255,255,255,.25); color: #fff; }
+
+/* --- Sidebar --- */
+.admin-layout {
+    display: flex;
+    min-height: calc(100vh - 58px);
+}
+.admin-sidebar {
+    width: 240px;
+    background: #fff;
+    border-right: 1.5px solid var(--border);
+    flex-shrink: 0;
+    transition: width .25s, transform .25s;
+    overflow: hidden;
+    position: sticky;
+    top: 58px;
+    height: calc(100vh - 58px);
+    overflow-y: auto;
+    padding: 16px 0;
+}
+.admin-sidebar.collapsed { width: 0; transform: translateX(-240px); position: fixed; }
+.sidebar-section { padding: 6px 16px 4px; font-size: 10px; font-weight: 800; color: var(--text-light); text-transform: uppercase; letter-spacing: .8px; }
+.sidebar-link {
+    display: flex; align-items: center; gap: 12px;
+    padding: 11px 18px;
+    color: var(--text-mid);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all var(--transition);
+    border-left: 3px solid transparent;
+    white-space: nowrap;
+}
+.sidebar-link i { width: 18px; text-align: center; font-size: 15px; flex-shrink: 0; }
+.sidebar-link:hover { background: var(--green-50); color: var(--green-800); }
+.sidebar-link.active {
+    background: var(--green-50);
+    color: var(--green-800);
+    border-left-color: var(--green-600);
+    font-weight: 700;
+}
+.sidebar-divider { height: 1px; background: var(--border); margin: 8px 0; }
+
+/* --- Admin Main Content --- */
+.admin-main {
+    flex: 1;
+    padding: 24px 20px;
+    min-width: 0;
+    max-width: 900px;
+}
+.admin-page-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--green-900);
+    margin-bottom: 4px;
+}
+.admin-page-sub {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+/* --- Admin Cards --- */
+.admin-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-bottom: 20px; }
+.admin-stat-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 18px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+.admin-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: var(--green-500);
+    border-radius: 4px 0 0 4px;
+}
+.admin-stat-card .stat-num { font-size: 26px; font-weight: 800; color: var(--green-800); }
+.admin-stat-card .stat-lbl { font-size: 12px; color: var(--text-light); margin-top: 3px; }
+
+/* --- Admin Form Card --- */
+.form-card {
+    background: #fff;
+    border-radius: var(--radius-md);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+.form-card-title {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--green-900);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1.5px solid var(--border);
+    display: flex; align-items: center; gap: 8px;
+}
+
+/* --- Admin Table --- */
+.admin-table-wrap {
+    background: #fff;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+.admin-table-header {
+    padding: 14px 18px;
+    border-bottom: 1.5px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    flex-wrap: wrap;
+}
+.admin-table-header h3 { font-size: 15px; font-weight: 700; color: var(--green-900); }
+.admin-table-wrap table th { background: var(--green-50); }
+
+/* --- Pending Badge --- */
+.pending-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--warning);
+    border-radius: 50%;
+    margin-right: 4px;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+
+/* --- Breadcrumb --- */
+.breadcrumb {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: var(--text-light);
+    margin-bottom: 16px;
+}
+.breadcrumb a { color: var(--green-700); text-decoration: none; font-weight: 600; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { color: var(--text-light); }
+
+/* --- Mobile Admin --- */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        position: fixed;
+        top: 58px; left: 0; bottom: 0;
+        z-index: 150;
+        transform: translateX(-100%);
+        width: 240px;
+        box-shadow: 4px 0 20px rgba(0,0,0,.15);
+    }
+    .admin-sidebar.open { transform: translateX(0); }
+    .sidebar-overlay {
+        display: none;
+        position: fixed; inset: 0; top: 58px;
+        background: rgba(0,0,0,.4);
+        z-index: 140;
+    }
+    .sidebar-overlay.show { display: block; }
+    .admin-main { padding: 16px; }
+    .admin-stats { grid-template-columns: 1fr 1fr; }
+}
