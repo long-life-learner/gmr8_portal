@@ -72,7 +72,7 @@ p{color:#6b8f7a;font-size:14px;margin-bottom:20px;}
         <?php endforeach; ?>
         <div class="warn">⚠️ <strong>Penting!</strong> Hapus file <code>setup.php</code> setelah ini untuk keamanan!</div>
         <div style="margin-top:20px;text-align:center;">
-            <a href="admin/login.php" style="display:inline-block;padding:12px 28px;background:#2D6A4F;color:#fff;border-radius:10px;font-weight:700;text-decoration:none;">
+            <a href="admin/login/" style="display:inline-block;padding:12px 28px;background:#2D6A4F;color:#fff;border-radius:10px;font-weight:700;text-decoration:none;">
                 Ke Halaman Login Admin →
             </a>
         </div>

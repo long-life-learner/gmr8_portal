@@ -11,7 +11,7 @@ $pageTitle = 'Upload Bukti Bayar';
 // Validasi tagihan_id
 $tagihanId = isset($_GET['tagihan_id']) ? (int)$_GET['tagihan_id'] : 0;
 if (!$tagihanId) {
-    header('Location: iuran.php');
+    header('Location: ' . SITE_URL . '/iuran/');
     exit;
 }
 
@@ -27,13 +27,13 @@ $stmt->execute([$tagihanId]);
 $tagihan = $stmt->fetch();
 
 if (!$tagihan) {
-    header('Location: iuran.php');
+    header('Location: ' . SITE_URL . '/iuran/');
     exit;
 }
 
 // Jika sudah bayar / menunggu verifikasi
 if ($tagihan['status'] === 'lunas') {
-    header('Location: iuran.php?msg=sudah_lunas');
+    header('Location: ' . SITE_URL . '/iuran/?msg=sudah_lunas');
     exit;
 }
 
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$sudahPending) {
                     $pdo->prepare("UPDATE tagihan SET status='menunggu_verifikasi' WHERE id=?")->execute([$tagihanId]);
 
                     $pdo->commit();
-                    header('Location: konfirmasi.php?tagihan_id=' . $tagihanId);
+                    header('Location: ' . SITE_URL . '/konfirmasi/?tagihan_id=' . $tagihanId);
                     exit;
                 } catch (PDOException $e) {
                     $pdo->rollBack();
@@ -106,7 +106,7 @@ require_once 'includes/header.php';
 
 <!-- Back Button -->
 <div class="container" style="padding-top:16px;">
-    <a href="iuran.php" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--green-700);text-decoration:none;">
+    <a href="<?= SITE_URL ?>/iuran/" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--green-700);text-decoration:none;">
         <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar
     </a>
 </div>
@@ -156,7 +156,7 @@ require_once 'includes/header.php';
                 <span style="font-size:12px;">Bukti sudah diterima bendahara. Tunggu konfirmasi ya, biasanya 1x24 jam! 🙏</span>
             </div>
         </div>
-        <a href="iuran.php" class="btn btn-outline btn-block">
+        <a href="<?= SITE_URL ?>/iuran/" class="btn btn-outline btn-block">
             <i class="fa-solid fa-arrow-left"></i> Kembali ke Daftar Iuran
         </a>
 

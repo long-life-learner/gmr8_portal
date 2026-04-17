@@ -94,7 +94,7 @@ $struktOrgData = $pdo->query("SELECT * FROM struktur_organisasi ORDER BY urutan 
 adminHeader('Struktur Organisasi', 'struktur_admin.php');
 ?>
 
-<div class="breadcrumb"><a href="dashboard.php">Dashboard</a><span>›</span><span>Struktur Organisasi</span></div>
+<div class="breadcrumb"><a href="../dashboard/">Dashboard</a><span>›</span><span>Struktur Organisasi</span></div>
 <div class="admin-page-title">👥 Kelola Struktur Organisasi</div>
 <div class="admin-page-sub">Tambah dan edit pengurus yang tampil di halaman Kenalan Pengurus</div>
 
@@ -147,7 +147,7 @@ adminHeader('Struktur Organisasi', 'struktur_admin.php');
         </div>
         <div style="display:flex;gap:10px;">
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> <?=$editData?'Update':'Simpan'?></button>
-            <?php if ($editData): ?><a href="struktur_admin.php" class="btn btn-outline">Batal</a><?php endif; ?>
+            <?php if ($editData): ?><a href="../struktur_admin/" class="btn btn-outline">Batal</a><?php endif; ?>
         </div>
     </form>
 </div>
@@ -156,7 +156,7 @@ adminHeader('Struktur Organisasi', 'struktur_admin.php');
 <div class="admin-table-wrap">
     <div class="admin-table-header">
         <h3>Tim Pengurus (<?=count($struktOrgData)?>)</h3>
-        <a href="<?=SITE_URL?>/struktur.php" target="_blank" class="btn btn-sm btn-outline">
+        <a href="<?=SITE_URL?>/struktur/" target="_blank" class="btn btn-sm btn-outline">
             <i class="fa-solid fa-eye"></i> Lihat Halaman
         </a>
     </div>

@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'gener
 if (isset($_GET['toggle'])) {
     $id = (int)$_GET['toggle'];
     $pdo->prepare("UPDATE jenis_iuran SET aktif = NOT aktif WHERE id=?")->execute([$id]);
-    header('Location: jenis_iuran.php?msg=updated'); exit;
+    header('Location: ../jenis_iuran/?msg=updated'); exit;
 }
 
 // Edit data
@@ -88,7 +88,7 @@ $jenisIuran = $pdo->query("SELECT * FROM jenis_iuran ORDER BY aktif DESC, id ASC
 adminHeader('Jenis Iuran', 'jenis_iuran.php');
 ?>
 
-<div class="breadcrumb"><a href="dashboard.php">Dashboard</a><span>›</span><span>Jenis Iuran</span></div>
+<div class="breadcrumb"><a href="../dashboard/">Dashboard</a><span>›</span><span>Jenis Iuran</span></div>
 <div class="admin-page-title">🏷️ Kelola Jenis Iuran</div>
 <div class="admin-page-sub">Tambah, edit jenis iuran, dan generate tagihan untuk warga</div>
 
@@ -134,7 +134,7 @@ adminHeader('Jenis Iuran', 'jenis_iuran.php');
                 <i class="fa-solid fa-save"></i> <?=$editData?'Update':'Simpan'?>
             </button>
             <?php if ($editData): ?>
-            <a href="jenis_iuran.php" class="btn btn-outline">Batal</a>
+            <a href="../jenis_iuran/" class="btn btn-outline">Batal</a>
             <?php endif; ?>
         </div>
     </form>

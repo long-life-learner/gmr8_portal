@@ -65,7 +65,7 @@ try {
         <h3 style="color:#c00;">⚠️ Koneksi Database Gagal</h3>
         <p>Pastikan XAMPP sudah berjalan dan database <strong>gmr8_portal</strong> sudah diimport.</p>
         <p style="color:#888;font-size:13px;">Error: ' . htmlspecialchars($e->getMessage()) . '</p>
-        <a href="' . SITE_URL . '/setup.php" style="display:inline-block;padding:10px 20px;background:#2D6A4F;color:#fff;border-radius:6px;text-decoration:none;">Jalankan Setup</a>
+        <a href="' . SITE_URL . '/setup/" style="display:inline-block;padding:10px 20px;background:#2D6A4F;color:#fff;border-radius:6px;text-decoration:none;">Jalankan Setup</a>
     </div>');
 }
 

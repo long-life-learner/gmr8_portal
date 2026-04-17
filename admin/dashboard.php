@@ -65,7 +65,7 @@ adminHeader('Dashboard', 'dashboard.php');
         <i class="fa-solid fa-bell"></i>
         <div>
             <strong><?= $pendingBayar ?> pembayaran menunggu verifikasi!</strong><br>
-            <a href="verifikasi.php" style="font-size:13px;color:inherit;">Klik untuk verifikasi sekarang →</a>
+            <a href="verifikasi/" style="font-size:13px;color:inherit;">Klik untuk verifikasi sekarang →</a>
         </div>
     </div>
 <?php endif; ?>
@@ -106,33 +106,33 @@ adminHeader('Dashboard', 'dashboard.php');
     <div class="form-card-title"><i class="fa-solid fa-bolt" style="color:var(--green-600)"></i> Aksi Cepat</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
         <?php if (hasRole(['sekretaris'])): ?>
-            <a href="kegiatan.php" class="btn btn-outline btn-sm">
+            <a href="kegiatan/" class="btn btn-outline btn-sm">
                 <i class="fa-solid fa-calendar-plus"></i> Tambah Kegiatan
             </a>
         <?php endif; ?>
         <?php if (hasRole(['bendahara'])): ?>
-            <a href="verifikasi.php" class="btn btn-outline btn-sm">
+            <a href="verifikasi/" class="btn btn-outline btn-sm">
                 <i class="fa-solid fa-circle-check"></i> Verifikasi Bayar
             </a>
-            <a href="jenis_iuran.php" class="btn btn-outline btn-sm">
+            <a href="jenis_iuran/" class="btn btn-outline btn-sm">
                 <i class="fa-solid fa-tags"></i> Buat Tagihan
             </a>
-            <a href="laporan.php" class="btn btn-outline btn-sm">
+            <a href="laporan/" class="btn btn-outline btn-sm">
                 <i class="fa-solid fa-chart-bar"></i> Laporan Keuangan
             </a>
-            <a href="kas.php" class="btn btn-outline btn-sm">
+            <a href="kas/" class="btn btn-outline btn-sm">
                 <i class="fa-solid fa-minus-circle"></i> Catat Pengeluaran
             </a>
         <?php endif; ?>
         <?php if (hasRole(['ketua_rt'])): ?>
-            <a href="warga.php" class="btn btn-outline btn-sm">
+            <a href="warga/" class="btn btn-outline btn-sm">
                 <i class="fa-solid fa-house-user"></i> Data Warga
             </a>
-            <a href="struktur_admin.php" class="btn btn-outline btn-sm">
+            <a href="struktur_admin/" class="btn btn-outline btn-sm">
                 <i class="fa-solid fa-people-group"></i> Struktur Org
             </a>
         <?php endif; ?>
-        <a href="<?= SITE_URL ?>/monitoring.php" target="_blank" class="btn btn-sm"
+        <a href="<?= SITE_URL ?>/monitoring/" target="_blank" class="btn btn-sm"
             style="background:var(--green-100);color:var(--green-800);">
             <i class="fa-solid fa-eye"></i> Lihat Monitoring
         </a>
@@ -144,7 +144,7 @@ adminHeader('Dashboard', 'dashboard.php');
     <div class="admin-table-wrap" style="margin-bottom:20px;">
         <div class="admin-table-header">
             <h3><span class="pending-dot"></span> Pembayaran Pending</h3>
-            <a href="verifikasi.php" class="btn btn-sm btn-primary">Lihat Semua</a>
+            <a href="verifikasi/" class="btn btn-sm btn-primary">Lihat Semua</a>
         </div>
         <table>
             <thead>
@@ -173,7 +173,7 @@ adminHeader('Dashboard', 'dashboard.php');
                         <td style="font-size:12px;color:var(--text-light);"><?= date('d/m H:i', strtotime($p['created_at'])) ?>
                         </td>
                         <td>
-                            <a href="verifikasi.php?id=<?= $p['id'] ?>" class="btn btn-sm btn-primary">
+                            <a href="verifikasi/?id=<?= $p['id'] ?>" class="btn btn-sm btn-primary">
                                 <i class="fa-solid fa-check"></i>
                             </a>
                         </td>
@@ -202,7 +202,7 @@ adminHeader('Dashboard', 'dashboard.php');
                     <div style="font-size:12px;color:var(--text-light);"><?= htmlspecialchars($k['lokasi'] ?? '-') ?></div>
                 </div>
                 <?php if (hasRole(['sekretaris'])): ?>
-                    <a href="kegiatan.php?edit=<?= $k['id'] ?>" class="btn btn-sm btn-outline"><i class="fa-solid fa-pen"></i></a>
+                    <a href="kegiatan/?edit=<?= $k['id'] ?>" class="btn btn-sm btn-outline"><i class="fa-solid fa-pen"></i></a>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>

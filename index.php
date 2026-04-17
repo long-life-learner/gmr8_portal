@@ -179,13 +179,13 @@ require_once 'includes/header.php';
     <!-- SHORTCUT SECTION -->
     <div class="section mb-3">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-            <a href="iuran.php" class="card" style="text-decoration:none;text-align:center;padding:20px 14px;">
+            <a href="<?= SITE_URL ?>/iuran/" class="card" style="text-decoration:none;text-align:center;padding:20px 14px;">
                 <i class="fa-solid fa-leaf"
                     style="font-size:28px;color:var(--green-600);margin-bottom:8px;display:block;"></i>
                 <div style="font-weight:700;font-size:14px;">Bayar Iuran</div>
                 <div style="font-size:12px;color:var(--text-light);">IPL & Kas RT</div>
             </a>
-            <a href="monitoring.php" class="card" style="text-decoration:none;text-align:center;padding:20px 14px;">
+            <a href="<?= SITE_URL ?>/monitoring/" class="card" style="text-decoration:none;text-align:center;padding:20px 14px;">
                 <i class="fa-solid fa-chart-line"
                     style="font-size:28px;color:var(--green-600);margin-bottom:8px;display:block;"></i>
                 <div style="font-weight:700;font-size:14px;">Cek Kas</div>

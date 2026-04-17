@@ -68,7 +68,7 @@ function getYouTubeId($url) {
                             <?= mb_strimwidth(strip_tags($t['konten']), 0, 100, "...") ?>
                         </p>
                         
-                        <a href="tutorial_detail.php?id=<?= $t['id'] ?>" class="btn" style="text-align:center; display:block; text-decoration:none; background:var(--green-50); color:var(--green-700); border:1px solid var(--green-200);">
+                        <a href="<?= SITE_URL ?>/tutorial_detail/?id=<?= $t['id'] ?>" class="btn" style="text-align:center; display:block; text-decoration:none; background:var(--green-50); color:var(--green-700); border:1px solid var(--green-200);">
                             Baca Selengkapnya →
                         </a>
                     </div>

@@ -29,7 +29,7 @@ if (isset($_GET['delete'])) {
 if (isset($_GET['toggle'])) {
     $id = (int)$_GET['toggle'];
     $pdo->prepare("UPDATE warga SET aktif = NOT aktif WHERE id=?")->execute([$id]);
-    header('Location: warga.php'); exit;
+    header('Location: ../warga/'); exit;
 }
 
 // SIMPAN
@@ -76,7 +76,7 @@ $totalAktif = $pdo->query("SELECT COUNT(*) FROM warga WHERE aktif=1")->fetchColu
 adminHeader('Data Warga', 'warga.php');
 ?>
 
-<div class="breadcrumb"><a href="dashboard.php">Dashboard</a><span>›</span><span>Data Warga</span></div>
+<div class="breadcrumb"><a href="../dashboard/">Dashboard</a><span>›</span><span>Data Warga</span></div>
 <div class="admin-page-title">🏘️ Data Warga RT 005</div>
 <div class="admin-page-sub"><?=$totalAktif?> KK aktif · Data dikelola pengurus agar valid</div>
 
@@ -111,7 +111,7 @@ adminHeader('Data Warga', 'warga.php');
         </div>
         <div style="display:flex;gap:10px;">
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> <?=$editData?'Update':'Simpan'?></button>
-            <?php if ($editData): ?><a href="warga.php" class="btn btn-outline">Batal</a><?php endif; ?>
+            <?php if ($editData): ?><a href="../warga/" class="btn btn-outline">Batal</a><?php endif; ?>
         </div>
     </form>
 </div>

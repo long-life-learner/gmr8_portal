@@ -13,19 +13,19 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 <!-- Bottom Navigation (Mobile) -->
 <nav class="bottom-nav" aria-label="Navigasi bawah">
-    <a href="<?= SITE_URL ?>/index.php" class="bottom-nav-item <?= $currentPage==='index.php'?'active':'' ?>">
+    <a href="<?= SITE_URL ?>/" class="bottom-nav-item <?= $currentPage==='index'?'active':'' ?>">
         <i class="fa-solid fa-house"></i>
         <span>Beranda</span>
     </a>
-    <a href="<?= SITE_URL ?>/iuran.php" class="bottom-nav-item <?= in_array($currentPage,['iuran.php','bayar.php','konfirmasi.php'])?'active':'' ?>">
+    <a href="<?= SITE_URL ?>/iuran/" class="bottom-nav-item <?= in_array($currentPage,['iuran','bayar','konfirmasi'])?'active':'' ?>">
         <i class="fa-solid fa-leaf"></i>
         <span>Bayar Iuran</span>
     </a>
-    <a href="<?= SITE_URL ?>/monitoring.php" class="bottom-nav-item <?= $currentPage==='monitoring.php'?'active':'' ?>">
+    <a href="<?= SITE_URL ?>/monitoring/" class="bottom-nav-item <?= $currentPage==='monitoring'?'active':'' ?>">
         <i class="fa-solid fa-chart-line"></i>
         <span>Kas Warga</span>
     </a>
-    <a href="javascript:void(0)" onclick="toggleBottomSheet(event)" id="menu-lainnya" class="bottom-nav-item <?= in_array($currentPage, ['struktur.php', 'tutorial.php', 'tutorial_detail.php']) ? 'active' : '' ?>">
+    <a href="javascript:void(0)" onclick="toggleBottomSheet(event)" id="menu-lainnya" class="bottom-nav-item <?= in_array($currentPage, ['struktur', 'tutorial', 'tutorial_detail']) ? 'active' : '' ?>">
         <i class="fa-solid fa-ellipsis"></i>
         <span>Lainnya</span>
     </a>
@@ -41,11 +41,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         </button>
     </div>
     <div class="bottom-sheet-grid">
-        <a href="struktur.php" class="bottom-sheet-item">
+        <a href="<?= SITE_URL ?>/struktur/" class="bottom-sheet-item">
             <i class="fa-solid fa-people-group"></i>
             <span>Struktur Pengurus</span>
         </a>
-        <a href="tutorial.php" class="bottom-sheet-item">
+        <a href="<?= SITE_URL ?>/tutorial/" class="bottom-sheet-item">
             <i class="fa-solid fa-book-open"></i>
             <span>Tutorial & Panduan</span>
         </a>

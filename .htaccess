@@ -1,0 +1,35 @@
+<IfModule mod_rewrite.c>
+    # Enable rewrite engine and follow symbolic links
+    Options +FollowSymLinks
+    RewriteEngine On
+    RewriteBase /
+
+    # 1. Prevent infinite loops by checking the REDIRECT_STATUS
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$ [OR]
+    RewriteCond %{ENV:REDIRECT_STATUS} 200
+
+    # 2. Redirect /page.php to /page/ (Clean URL)
+    # Excluding /api/ directory
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/([^.]+)\.php [NC]
+    RewriteCond %{REQUEST_URI} !^/api/ [NC]
+    RewriteRule ^ /%1/ [R=301,L]
+
+    # 3. Add trailing slash to non-file requests
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]+|/)$
+    RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+    # 4. Skip existing physical files and directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 5. Internal rewrite to .php if the file exists
+    # Handles both root and subdirectories like admin/
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.+)/$ $1.php [L]
+
+    # 6. Default index
+    RewriteRule ^$ index.php [L]
+</IfModule>

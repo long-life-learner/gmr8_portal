@@ -59,7 +59,7 @@ $kegiatan = $pdo->query("SELECT * FROM kegiatan ORDER BY tanggal DESC LIMIT 50")
 adminHeader('Jadwal Kegiatan', 'kegiatan.php');
 ?>
 
-<div class="breadcrumb"><a href="dashboard.php">Dashboard</a><span>›</span><span>Jadwal Kegiatan</span></div>
+<div class="breadcrumb"><a href="../dashboard/">Dashboard</a><span>›</span><span>Jadwal Kegiatan</span></div>
 <div class="admin-page-title">📅 Kelola Jadwal Kegiatan</div>
 <div class="admin-page-sub">Tambah dan kelola agenda kegiatan RT 005 GMR 8</div>
 
@@ -120,7 +120,7 @@ adminHeader('Jadwal Kegiatan', 'kegiatan.php');
 
         <div style="display:flex;gap:10px;">
             <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> <?=$editData?'Update':'Simpan'?></button>
-            <?php if ($editData): ?><a href="kegiatan.php" class="btn btn-outline">Batal</a><?php endif; ?>
+            <?php if ($editData): ?><a href="../kegiatan/" class="btn btn-outline">Batal</a><?php endif; ?>
         </div>
     </form>
 </div>

@@ -7,7 +7,7 @@ require_once '../includes/db.php';
 require_once '../includes/auth.php';
 
 if (isLoggedIn()) {
-    header('Location: dashboard.php');
+    header('Location: ../dashboard/');
     exit;
 }
 
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['admin_role'] = $user['role'];
 
             $redirect = $_GET['redirect'] ?? 'dashboard.php';
-            header('Location: ' . (strpos($redirect, 'admin/') !== false ? basename($redirect) : 'dashboard.php'));
+            header('Location: ' . (strpos($redirect, 'admin/') !== false ? str_replace('.php', '/', basename($redirect)) : '../dashboard/'));
             exit;
         } else {
             $error = 'Username atau password salah. Coba lagi ya!';
@@ -113,7 +113,7 @@ body{padding-bottom:0;min-height:100vh;display:flex;align-items:center;justify-c
         </p>
     </div>
 
-    <a href="../index.php" class="back-link">
+    <a href="../../" class="back-link">
         <i class="fa-solid fa-arrow-left"></i> Kembali ke Halaman Warga
     </a>
 </div>

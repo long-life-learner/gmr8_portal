@@ -145,7 +145,7 @@ $waText .= "_Terima kasih atas kepercayaannya!_ 💚";
 adminHeader('Laporan Keuangan', 'laporan.php');
 ?>
 
-<div class="breadcrumb"><a href="dashboard.php">Dashboard</a><span>›</span><span>Laporan Keuangan</span></div>
+<div class="breadcrumb"><a href="../dashboard/">Dashboard</a><span>›</span><span>Laporan Keuangan</span></div>
 <div class="admin-page-title">📑 Laporan Keuangan</div>
 <div class="admin-page-sub">Rekap pemasukan, pengeluaran, dan export laporan</div>
 

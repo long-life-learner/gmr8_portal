@@ -2,7 +2,9 @@
 // ============================================================
 // Header — Portal Warga RT 005 GMR 8
 // ============================================================
-$currentPage = basename($_SERVER['PHP_SELF']);
+$currentPage = rtrim($_SERVER['REQUEST_URI'], '/');
+$currentPage = basename($currentPage);
+if (empty($currentPage)) $currentPage = 'index';
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -25,7 +27,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
     <!-- Top Header -->
     <header class="site-header">
-        <a href="<?= SITE_URL ?>/index.php" class="logo">
+        <a href="<?= SITE_URL ?>/" class="logo">
             <div class="logo-icon">🌿</div>
             <div class="logo-text">
                 <strong>Warga GMR 8</strong>
@@ -35,25 +37,25 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
         <!-- Desktop Navigation -->
         <nav class="desktop-nav" aria-label="Navigasi utama">
-            <a href="<?= SITE_URL ?>/index.php" class="<?= $currentPage === 'index.php' ? 'active' : '' ?>">
+            <a href="<?= SITE_URL ?>/" class="<?= $currentPage === 'index' ? 'active' : '' ?>">
                 <i class="fa-solid fa-house"></i> Beranda
             </a>
-            <a href="<?= SITE_URL ?>/iuran.php"
-                class="<?= $currentPage === 'iuran.php' || $currentPage === 'bayar.php' ? 'active' : '' ?>">
+            <a href="<?= SITE_URL ?>/iuran/"
+                class="<?= $currentPage === 'iuran' || $currentPage === 'bayar' ? 'active' : '' ?>">
                 <i class="fa-solid fa-leaf"></i> Iuran
             </a>
-            <a href="<?= SITE_URL ?>/monitoring.php" class="<?= $currentPage === 'monitoring.php' ? 'active' : '' ?>">
+            <a href="<?= SITE_URL ?>/monitoring/" class="<?= $currentPage === 'monitoring' ? 'active' : '' ?>">
                 <i class="fa-solid fa-chart-line"></i> Kas Warga
             </a>
-            <a href="<?= SITE_URL ?>/struktur.php" class="<?= $currentPage === 'struktur.php' ? 'active' : '' ?>">
+            <a href="<?= SITE_URL ?>/struktur/" class="<?= $currentPage === 'struktur' ? 'active' : '' ?>">
                 <i class="fa-solid fa-people-group"></i> Pengurus
             </a>
-            <a href="<?= SITE_URL ?>/tutorial.php" class="<?= $currentPage === 'tutorial.php' || strpos($currentPage, 'tutorial_detail.php') !== false ? 'active' : '' ?>">
+            <a href="<?= SITE_URL ?>/tutorial/" class="<?= $currentPage === 'tutorial' || strpos($_SERVER['REQUEST_URI'], '/tutorial_detail/') !== false ? 'active' : '' ?>">
                 <i class="fa-solid fa-book-open"></i> Tutorial
             </a>
         </nav>
 
-        <a href="<?= SITE_URL ?>/admin/login.php" class="header-admin-btn" aria-label="Login admin">
+        <a href="<?= SITE_URL ?>/admin/login/" class="header-admin-btn" aria-label="Login admin">
             <i class="fa-solid fa-lock"></i>
             <span class="hidden" style="display:none">Admin</span>
         </a>

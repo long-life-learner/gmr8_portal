@@ -96,7 +96,7 @@ adminHeader('Verifikasi Pembayaran', 'verifikasi.php');
 ?>
 
 <div class="breadcrumb">
-    <a href="dashboard.php">Dashboard</a>
+    <a href="../dashboard/">Dashboard</a>
     <span>›</span>
     <span>Verifikasi Pembayaran</span>
 </div>

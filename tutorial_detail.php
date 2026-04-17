@@ -11,7 +11,7 @@ $stmt->execute([$id]);
 $t = $stmt->fetch();
 
 if (!$t) {
-    header('Location: tutorial.php');
+    header('Location: ' . SITE_URL . '/tutorial/');
     exit;
 }
 
@@ -73,11 +73,11 @@ $embedUrl = getEmbedYouTubeUrl($t['youtube_url']);
 <div class="container" style="max-width:900px;">
     <div class="card" style="padding:40px;">
         <div class="breadcrumb" style="margin-top: -15px; margin-bottom: 25px; border-bottom: 1px solid var(--green-50); padding-bottom: 12px; display: flex; align-items: center; gap: 8px; font-size: 13px;">
-            <a href="index.php" style="color: var(--green-700); font-weight: 700;">
+            <a href="<?= SITE_URL ?>/" style="color: var(--green-700); font-weight: 700;">
                 <i class="fa-solid fa-house" style="margin-right: 4px;"></i> Beranda
             </a> 
             <span style="color: var(--green-200); opacity: 0.8;">›</span> 
-            <a href="tutorial.php" style="color: var(--green-700); font-weight: 700;">Tutorial</a> 
+            <a href="<?= SITE_URL ?>/tutorial/" style="color: var(--green-700); font-weight: 700;">Tutorial</a> 
             <span style="color: var(--green-200); opacity: 0.8;">›</span> 
             <span style="color: var(--text-mid); font-weight: 500;">Baca Tutorial</span>
         </div>

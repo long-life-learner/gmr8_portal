@@ -19,7 +19,8 @@ function adminHeader($pageTitle = '', $activePage = '') {
     }
 
     $menu = getAdminMenu();
-    $currentFile = basename($_SERVER['PHP_SELF']);
+    $currentUri = rtrim($_SERVER['REQUEST_URI'], '/');
+    $currentSlug = basename($currentUri);
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -50,7 +51,7 @@ function adminHeader($pageTitle = '', $activePage = '') {
                 </div>
             </div>
         </div>
-        <a href="logout.php" class="topbar-logout"><i class="fa-solid fa-right-from-bracket"></i> Keluar</a>
+        <a href="logout/" class="topbar-logout"><i class="fa-solid fa-right-from-bracket"></i> Keluar</a>
     </div>
 </div>
 
@@ -59,13 +60,17 @@ function adminHeader($pageTitle = '', $activePage = '') {
 
 <div class="admin-layout">
     <!-- Sidebar -->
-    <aside class="admin-sidebar" id="admin-sidebar">
+        <aside class="admin-sidebar" id="admin-sidebar">
         <div class="sidebar-section">Menu</div>
         <?php foreach ($menu as $item): ?>
-        <a href="<?= $item['url'] ?>" class="sidebar-link <?= $currentFile === $item['url'] ? 'active' : '' ?>">
+        <?php 
+            $itemSlug = rtrim($item['url'], '/');
+            $isActive = ($currentSlug === $itemSlug);
+        ?>
+        <a href="<?= $item['url'] ?>" class="sidebar-link <?= $isActive ? 'active' : '' ?>">
             <i class="fa-solid <?= $item['icon'] ?>"></i>
             <span><?= htmlspecialchars($item['label']) ?></span>
-            <?php if ($item['url'] === 'verifikasi.php' && $pendingCount > 0): ?>
+            <?php if ($item['url'] === 'verifikasi/' && $pendingCount > 0): ?>
             <span style="margin-left:auto;background:#e53935;color:#fff;border-radius:20px;padding:1px 7px;font-size:11px;font-weight:700;"><?= $pendingCount ?></span>
             <?php endif; ?>
         </a>
@@ -73,11 +78,11 @@ function adminHeader($pageTitle = '', $activePage = '') {
 
         <div class="sidebar-divider"></div>
         <div class="sidebar-section">Navigasi</div>
-        <a href="<?= SITE_URL ?>/index.php" class="sidebar-link" target="_blank">
+        <a href="<?= SITE_URL ?>/" class="sidebar-link" target="_blank">
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <span>Lihat Website</span>
         </a>
-        <a href="logout.php" class="sidebar-link" style="color:#c62828;">
+        <a href="logout/" class="sidebar-link" style="color:#c62828;">
             <i class="fa-solid fa-right-from-bracket"></i>
             <span>Keluar</span>
         </a>

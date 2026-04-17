@@ -81,15 +81,15 @@ require_once 'includes/header.php';
         </div>
 
         <div style="display:flex;flex-direction:column;gap:12px;">
-            <a href="monitoring.php" class="btn btn-primary">
+            <a href="<?= SITE_URL ?>/monitoring/" class="btn btn-primary">
                 <i class="fa-solid fa-chart-line"></i>
                 Cek Monitoring Kas
             </a>
-            <a href="iuran.php" class="btn btn-outline">
+            <a href="<?= SITE_URL ?>/iuran/" class="btn btn-outline">
                 <i class="fa-solid fa-leaf"></i>
                 Kembali ke Halaman Iuran
             </a>
-            <a href="index.php" class="btn" style="background:transparent;color:var(--text-light);font-size:14px;">
+            <a href="<?= SITE_URL ?>/" class="btn" style="background:transparent;color:var(--text-light);font-size:14px;">
                 <i class="fa-solid fa-house"></i>
                 Ke Beranda
             </a>

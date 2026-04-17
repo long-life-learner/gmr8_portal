@@ -185,7 +185,7 @@ require_once 'includes/header.php';
 
                         <div class="warga-list" id="warga-list-belum">
                             <?php foreach ($belumBayar as $w): ?>
-                                <a href="bayar.php?tagihan_id=<?= $w['tagihan_id'] ?>" class="warga-item" style="text-decoration:none;">
+                                <a href="<?= SITE_URL ?>/bayar/?tagihan_id=<?= $w['tagihan_id'] ?>" class="warga-item" style="text-decoration:none;">
                                     <div class="warga-avatar"><?= getInitials($w['nama']) ?></div>
                                     <div class="warga-info">
                                         <div class="warga-nama"><?= htmlspecialchars($w['nama']) ?></div>

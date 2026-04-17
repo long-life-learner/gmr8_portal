@@ -59,7 +59,7 @@ $saldo = getSaldoKas($pdo);
 adminHeader('Catat Pengeluaran', 'kas.php');
 ?>
 
-<div class="breadcrumb"><a href="dashboard.php">Dashboard</a><span>›</span><span>Catat Pengeluaran</span></div>
+<div class="breadcrumb"><a href="../dashboard/">Dashboard</a><span>›</span><span>Catat Pengeluaran</span></div>
 <div class="admin-page-title">💸 Catat Pengeluaran Kas</div>
 <div class="admin-page-sub">Saldo Kas Saat Ini: <strong style="color:var(--green-700);"><?=formatRupiah($saldo)?></strong></div>
 
