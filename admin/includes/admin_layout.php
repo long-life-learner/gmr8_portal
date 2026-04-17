@@ -64,7 +64,7 @@ function adminHeader($pageTitle = '', $activePage = '') {
         <div class="sidebar-section">Menu</div>
         <?php foreach ($menu as $item): ?>
         <?php 
-            $itemSlug = rtrim($item['url'], '/');
+            $itemSlug = basename(rtrim($item['url'], '/'));
             $isActive = ($currentSlug === $itemSlug);
         ?>
         <a href="<?= $item['url'] ?>" class="sidebar-link <?= $isActive ? 'active' : '' ?>">

@@ -2,7 +2,9 @@
 // ============================================================
 // Footer — Portal Warga RT 005 GMR 8
 // ============================================================
-$currentPage = basename($_SERVER['PHP_SELF']);
+$currentPage = rtrim($_SERVER['REQUEST_URI'], '/');
+$currentPage = basename($currentPage);
+if (empty($currentPage)) $currentPage = 'index';
 ?>
 
 <!-- Site Footer -->
