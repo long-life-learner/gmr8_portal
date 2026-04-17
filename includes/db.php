@@ -1,23 +1,55 @@
 <?php
 // ============================================================
-// Database Connection - Portal Warga RT 005 GMR 8
+// Load Environment Variables
 // ============================================================
+function loadEnv($path)
+{
+    if (!file_exists($path)) {
+        return false;
+    }
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'gmr8_portal');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_CHARSET', 'utf8mb4');
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) {
+            continue;
+        }
 
-define('SITE_NAME', 'Portal Warga GMR 8');
-define('SITE_URL', 'http://gmr8.test');
+        if (strpos($line, '=') !== false) {
+            list($name, $value) = explode('=', $line, 2);
+            $name = trim($name);
+            $value = trim($value);
+
+            // Strip quotes if present
+            $value = trim($value, " \t\n\r\0\x0B\"'");
+
+            if (!array_key_exists($name, $_SERVER) && !array_key_exists($name, $_ENV)) {
+                putenv(sprintf('%s=%s', $name, $value));
+                $_ENV[$name] = $value;
+                $_SERVER[$name] = $value;
+            }
+        }
+    }
+    return true;
+}
+
+// Load .env from root directory
+loadEnv(__DIR__ . '/../.env');
+
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'gmr8_portal');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '');
+define('DB_CHARSET', getenv('DB_CHARSET') ?: 'utf8mb4');
+
+define('SITE_NAME', getenv('SITE_NAME') ?: 'Portal Warga GMR 8');
+define('SITE_URL', getenv('SITE_URL') ?: 'http://gmr8.test');
 define('UPLOAD_PATH', __DIR__ . '/../assets/uploads/');
 define('UPLOAD_URL', SITE_URL . '/assets/uploads/');
 
 // Rekening bank untuk pembayaran
-define('BANK_NAMA', 'BCA');
-define('BANK_NOMOR', '1234567890'); // Ganti dengan nomor rekening asli
-define('BANK_ATAS_NAMA', 'Sari Dewi Rahayu'); // Ganti dengan nama bendahara
+define('BANK_NAMA', getenv('BANK_NAMA') ?: 'BCA');
+define('BANK_NOMOR', getenv('BANK_NOMOR') ?: '1234567890');
+define('BANK_ATAS_NAMA', getenv('BANK_ATAS_NAMA') ?: 'Sari Dewi Rahayu');
 
 $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
 $options = [

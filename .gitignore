@@ -2,3 +2,4 @@ wa-bot/auth_info/
 wa-bot/.env
 wa-bot/logs/
 wa-bot/node_modules/
+.env
