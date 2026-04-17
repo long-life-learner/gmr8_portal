@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->exec("DELETE FROM pengurus");
 
         $accounts = [
-            ['Budi Hartono', 'ketuart', 'ketuart123', 'ketua_rt'],
-            ['Sari Dewi Rahayu', 'bendahara', 'bendahara123', 'bendahara'],
-            ['Rina Marliani', 'sekretaris', 'sekretaris123', 'sekretaris'],
-            ['Super Admin', 'admin', 'admin123', 'admin'],
+            ['Mariadi', 'ketuart', 'gmr854', 'ketua_rt'],
+            ['M. Fathur', 'bendahara', 'gmr820', 'bendahara'],
+            ['Sekretaris', 'sekretaris', 'gmr824', 'sekretaris'],
+            ['Super Admin', 'admin', 'gmr8zz', 'admin'],
         ];
 
         $stmt = $pdo->prepare("INSERT INTO pengurus (nama, username, password, role) VALUES (?, ?, ?, ?)");
