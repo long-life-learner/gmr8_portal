@@ -13,7 +13,7 @@ function isLoggedIn() {
 
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: ' . (strpos($_SERVER['REQUEST_URI'], '/admin/') !== false ? '' : 'admin/') . 'login/?redirect=' . urlencode($_SERVER['REQUEST_URI']));
+        header('Location: ' . SITE_URL . '/admin/login/?redirect=' . urlencode($_SERVER['REQUEST_URI']));
         exit;
     }
 }
@@ -39,7 +39,7 @@ function hasRole($roles) {
 function requireRole($roles) {
     requireLogin();
     if (!hasRole($roles)) {
-        header('Location: ../dashboard/?error=akses_ditolak');
+        header('Location: ' . SITE_URL . '/admin/dashboard/?error=akses_ditolak');
         exit;
     }
 }
@@ -61,23 +61,23 @@ function getAdminMenu() {
     $menu = [];
 
     // Dashboard selalu ada
-    $menu[] = ['url' => 'dashboard/', 'icon' => 'fa-gauge', 'label' => 'Dashboard'];
+    $menu[] = ['url' => SITE_URL . '/admin/dashboard/', 'icon' => 'fa-gauge', 'label' => 'Dashboard'];
 
     if (hasRole(['bendahara'])) {
-        $menu[] = ['url' => 'verifikasi/', 'icon' => 'fa-circle-check', 'label' => 'Verifikasi Bayar'];
-        $menu[] = ['url' => 'jenis_iuran/', 'icon' => 'fa-tags', 'label' => 'Jenis Iuran'];
-        $menu[] = ['url' => 'laporan/', 'icon' => 'fa-chart-bar', 'label' => 'Laporan Keuangan'];
-        $menu[] = ['url' => 'kas/', 'icon' => 'fa-wallet', 'label' => 'Catat Pengeluaran'];
+        $menu[] = ['url' => SITE_URL . '/admin/verifikasi/', 'icon' => 'fa-circle-check', 'label' => 'Verifikasi Bayar'];
+        $menu[] = ['url' => SITE_URL . '/admin/jenis_iuran/', 'icon' => 'fa-tags', 'label' => 'Jenis Iuran'];
+        $menu[] = ['url' => SITE_URL . '/admin/laporan/', 'icon' => 'fa-chart-bar', 'label' => 'Laporan Keuangan'];
+        $menu[] = ['url' => SITE_URL . '/admin/kas/', 'icon' => 'fa-wallet', 'label' => 'Catat Pengeluaran'];
     }
 
     if (hasRole(['sekretaris'])) {
-        $menu[] = ['url' => 'kegiatan/', 'icon' => 'fa-calendar-days', 'label' => 'Jadwal Kegiatan'];
-        $menu[] = ['url' => 'tutorial/', 'icon' => 'fa-book-open', 'label' => 'Kelola Tutorial'];
+        $menu[] = ['url' => SITE_URL . '/admin/kegiatan/', 'icon' => 'fa-calendar-days', 'label' => 'Jadwal Kegiatan'];
+        $menu[] = ['url' => SITE_URL . '/admin/tutorial/', 'icon' => 'fa-book-open', 'label' => 'Kelola Tutorial'];
     }
 
     if (hasRole(['ketua_rt'])) {
-        $menu[] = ['url' => 'warga/', 'icon' => 'fa-house-user', 'label' => 'Data Warga'];
-        $menu[] = ['url' => 'struktur_admin/', 'icon' => 'fa-people-group', 'label' => 'Struktur Organisasi'];
+        $menu[] = ['url' => SITE_URL . '/admin/warga/', 'icon' => 'fa-house-user', 'label' => 'Data Warga'];
+        $menu[] = ['url' => SITE_URL . '/admin/struktur_admin/', 'icon' => 'fa-people-group', 'label' => 'Struktur Organisasi'];
     }
 
     return $menu;

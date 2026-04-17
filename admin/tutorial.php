@@ -129,7 +129,7 @@ adminHeader('Kelola Tutorial Warga', 'tutorial.php');
             <label class="form-label">Upload Foto Banner (opsional)</label>
             <?php if(isset($editData['foto']) && $editData['foto']): ?>
                 <div style="margin-bottom:10px;">
-                    <img src="../assets/uploads/tutorial/<?= htmlspecialchars($editData['foto']) ?>" style="max-height:80px;border-radius:6px;border:1px solid #ddd;">
+                    <img src="<?= SITE_URL ?>/assets/uploads/tutorial/<?= htmlspecialchars($editData['foto']) ?>" style="max-height:80px;border-radius:6px;border:1px solid #ddd;">
                 </div>
             <?php endif; ?>
             <input type="file" name="foto" class="form-control" accept=".jpg,.jpeg,.png,.webp">

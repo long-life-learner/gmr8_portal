@@ -30,6 +30,9 @@
     RewriteCond %{REQUEST_FILENAME}.php -f
     RewriteRule ^(.+)/$ $1.php [L]
 
-    # 6. Default index
+    # 6. Admin directory index
+    RewriteRule ^admin/$ admin/index.php [L]
+
+    # 7. Default index
     RewriteRule ^$ index.php [L]
 </IfModule>

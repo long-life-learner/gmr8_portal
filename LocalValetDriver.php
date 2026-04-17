@@ -45,8 +45,13 @@ class LocalValetDriver extends Valet\Drivers\ValetDriver
         }
 
         // Special handling for directories (like /admin/)
-        if (is_dir($sitePath . $uri) && file_exists($sitePath . $uri . '/index.php')) {
-            return $sitePath . $uri . '/index.php';
+        if (is_dir($sitePath . $uri)) {
+            if ($uri === '/admin') {
+                 return $sitePath . '/admin/dashboard.php';
+            }
+            if (file_exists($sitePath . $uri . '/index.php')) {
+                return $sitePath . $uri . '/index.php';
+            }
         }
 
         // Default to index.php for the home page or any unknown route

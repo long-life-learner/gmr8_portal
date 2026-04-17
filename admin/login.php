@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['admin_role'] = $user['role'];
 
             $redirect = $_GET['redirect'] ?? 'dashboard.php';
-            header('Location: ' . (strpos($redirect, 'admin/') !== false ? str_replace('.php', '/', basename($redirect)) : '../dashboard/'));
+            header('Location: ' . (strpos($redirect, 'admin/') !== false ? SITE_URL . '/admin/' . str_replace('.php', '/', basename($redirect)) : SITE_URL . '/admin/dashboard/'));
             exit;
         } else {
             $error = 'Username atau password salah. Coba lagi ya!';
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <title>Login Admin — Portal Warga GMR 8</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-<link href="../assets/css/style.css" rel="stylesheet">
+<link href="<?= SITE_URL ?>/assets/css/style.css" rel="stylesheet">
 <style>
 body{padding-bottom:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--green-900) 0%,var(--green-700) 50%,var(--green-500) 100%);}
 .login-wrap{width:100%;max-width:380px;padding:20px;}

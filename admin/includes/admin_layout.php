@@ -51,7 +51,7 @@ function adminHeader($pageTitle = '', $activePage = '') {
                 </div>
             </div>
         </div>
-        <a href="logout/" class="topbar-logout"><i class="fa-solid fa-right-from-bracket"></i> Keluar</a>
+        <a href="<?= SITE_URL ?>/admin/logout/" class="topbar-logout"><i class="fa-solid fa-right-from-bracket"></i> Keluar</a>
     </div>
 </div>
 
@@ -82,7 +82,7 @@ function adminHeader($pageTitle = '', $activePage = '') {
             <i class="fa-solid fa-arrow-up-right-from-square"></i>
             <span>Lihat Website</span>
         </a>
-        <a href="logout/" class="sidebar-link" style="color:#c62828;">
+        <a href="<?= SITE_URL ?>/admin/logout/" class="sidebar-link" style="color:#c62828;">
             <i class="fa-solid fa-right-from-bracket"></i>
             <span>Keluar</span>
         </a>

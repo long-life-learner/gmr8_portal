@@ -157,8 +157,8 @@ adminHeader('Verifikasi Pembayaran', 'verifikasi.php');
                 <div>
                     <div style="font-size:12px;font-weight:700;color:var(--text-light);margin-bottom:8px;">📸 BUKTI TRANSFER</div>
                     <?php if ($p['bukti_bayar'] && file_exists('../assets/uploads/bukti/' . $p['bukti_bayar'])): ?>
-                    <a href="../assets/uploads/bukti/<?= htmlspecialchars($p['bukti_bayar']) ?>" target="_blank">
-                        <img src="../assets/uploads/bukti/<?= htmlspecialchars($p['bukti_bayar']) ?>"
+                    <a href="<?= SITE_URL ?>/assets/uploads/bukti/<?= htmlspecialchars($p['bukti_bayar']) ?>" target="_blank">
+                        <img src="<?= SITE_URL ?>/assets/uploads/bukti/<?= htmlspecialchars($p['bukti_bayar']) ?>"
                              alt="Bukti Bayar"
                              style="width:100%;max-height:180px;object-fit:cover;border-radius:10px;border:2px solid var(--border);cursor:zoom-in;">
                     </a>
