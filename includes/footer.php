@@ -51,6 +51,10 @@ if (empty($currentPage)) $currentPage = 'index';
             <i class="fa-solid fa-book-open"></i>
             <span>Tutorial & Panduan</span>
         </a>
+        <a href="<?= SITE_URL ?>/cctv/" class="bottom-sheet-item">
+            <i class="fa-solid fa-video"></i>
+            <span>Pantau CCTV</span>
+        </a>
     </div>
 </div>
 

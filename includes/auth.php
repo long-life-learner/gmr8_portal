@@ -80,5 +80,9 @@ function getAdminMenu() {
         $menu[] = ['url' => SITE_URL . '/admin/struktur_admin/', 'icon' => 'fa-people-group', 'label' => 'Struktur Organisasi'];
     }
 
+    if(hasRole(['admin'])) {
+        $menu[] = ['url' => SITE_URL . '/admin/cctv/', 'icon' => 'fa-video', 'label' => 'Kelola CCTV'];
+    }
+
     return $menu;
 }

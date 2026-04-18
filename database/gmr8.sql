@@ -243,3 +243,14 @@ CREATE TABLE IF NOT EXISTS tutorial (
 -- NOTE: Akun admin dibuat via setup.php
 -- Jalankan http://localhost/GMR8/setup.php setelah import SQL ini
 -- ============================================================
+
+-- Table structure for table `cctv`
+CREATE TABLE IF NOT EXISTS `cctv` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `lokasi` varchar(100) NOT NULL,
+  `url_m3u8` text NOT NULL,
+  `tipe` enum('ATCS','Internal') DEFAULT 'ATCS',
+  `status` enum('Aktif','Nonaktif') DEFAULT 'Aktif',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

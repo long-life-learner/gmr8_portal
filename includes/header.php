@@ -53,6 +53,9 @@ if (empty($currentPage)) $currentPage = 'index';
             <a href="<?= SITE_URL ?>/tutorial/" class="<?= $currentPage === 'tutorial' || strpos($_SERVER['REQUEST_URI'], '/tutorial_detail/') !== false ? 'active' : '' ?>">
                 <i class="fa-solid fa-book-open"></i> Tutorial
             </a>
+            <a href="<?= SITE_URL ?>/cctv/" class="<?= $currentPage === 'cctv.php' ? 'active' : '' ?>">
+                <i class="fa-solid fa-video"></i> CCTV
+            </a>
         </nav>
 
         <a href="<?= SITE_URL ?>/admin/login/" class="header-admin-btn" aria-label="Login admin">
