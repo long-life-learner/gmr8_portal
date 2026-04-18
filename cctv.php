@@ -11,7 +11,7 @@ require_once 'includes/header.php';
 $title = "Pantau CCTV";
 $subTitle = "Pantau situasi lalu lintas utama dan keamanan perumahan secara real-time.";
 
-$cctvs = $pdo->query("SELECT * FROM cctv WHERE status = 'Aktif' ORDER BY lokasi ASC")->fetchAll();
+$cctvs = $pdo->query("SELECT * FROM cctv WHERE status = 'Aktif' ORDER BY id ASC")->fetchAll();
 ?>
 
 <section class="hero" style="padding-bottom:2rem;">
